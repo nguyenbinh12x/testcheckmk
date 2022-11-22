@@ -1,0 +1,260 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>agent_based_api.v1.clusterize &mdash; Checkmk&#39;s Plugin API  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="agent_based_api.v1.register" href="cmk.base.plugins.agent_based.agent_based_api.v1.register.html" />
+    <link rel="prev" title="agent_based_api.v1" href="cmk.base.plugins.agent_based.agent_based_api.v1.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Checkmk's Plugin API
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Base</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="cmk.base.plugins.agent_based.agent_based_api.html">Agent based API (“Check API”)</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cmk.base.plugins.agent_based.agent_based_api.html#version-1">Version 1</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cmk.base.plugins.agent_based.agent_based_api.v1.html">agent_based_api.v1</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">agent_based_api.v1.clusterize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmk.base.plugins.agent_based.agent_based_api.v1.register.html">agent_based_api.v1.register</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmk.base.plugins.agent_based.agent_based_api.v1.render.html">agent_based_api.v1.render</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmk.base.plugins.agent_based.agent_based_api.v1.type_defs.html">agent_based_api.v1.type_defs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Checkmk's Plugin API</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="cmk.base.plugins.agent_based.agent_based_api.html">Agent based API (“Check API”)</a> &raquo;</li>
+        
+      <li>agent_based_api.v1.clusterize</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="module-cmk.base.plugins.agent_based.agent_based_api.v1.clusterize"></span><div class="section" id="agent-based-api-v1-clusterize">
+<h1>agent_based_api.v1.clusterize<a class="headerlink" href="#agent-based-api-v1-clusterize" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.clusterize.make_node_notice_results">
+<code class="sig-name descname"><span class="pre">make_node_notice_results</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_check_results</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_ok</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.clusterize.make_node_notice_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prepare results of a node for output in a cluster check function</p>
+<p>This function consumes everything from a check function (that is, a <code class="xref py py-class docutils literal notranslate"><span class="pre">Result</span></code>,
+a <code class="xref py py-class docutils literal notranslate"><span class="pre">Metric</span></code> or an <code class="xref py py-class docutils literal notranslate"><span class="pre">IgnoreResults</span></code>) and returns an iterable of :class:<a href="#id1"><span class="problematic" id="id2">`</span></a>Result`s.</p>
+<p>The text is prepended with <cite>‘[node]: ‘</cite>, and the text type is changed from <cite>summary</cite> to <cite>notice</cite>
+(see <code class="xref py py-class docutils literal notranslate"><span class="pre">Result</span></code> for more details).</p>
+<dl>
+<dt>Usage example:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">cluster_check_myplugin</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">section</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="sd">&#39;&#39;&#39;A cluster check function that just passes along all node results&#39;&#39;&#39;</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">node_name</span><span class="p">,</span> <span class="n">node_section</span> <span class="ow">in</span> <span class="n">sections</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+<span class="gp">... </span>        <span class="k">yield from</span> <span class="n">make_node_notice_results</span><span class="p">(</span>
+<span class="gp">... </span>            <span class="n">node_name</span><span class="p">,</span>
+<span class="gp">... </span>            <span class="n">check_myplugin</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">node_section</span><span class="p">),</span>
+<span class="gp">... </span>        <span class="p">)</span>
+</pre></div>
+</div>
+<p>This will write text from every node to the services summary if the state is not OK,
+otherwise to the details text.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The name of the node</p></li>
+<li><p><strong>node_check_results</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">IgnoreResults</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Metric</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Result</span></code>]]) – The return values or generator of the nodes check_function call</p></li>
+<li><p><strong>force_ok</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If specified, the state of all results is chacnged to OK. In this case
+the state marker corresponding to the original state is appended to
+the text.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Result</span></code>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The node results, with the text type <cite>notice</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="cmk.base.plugins.agent_based.agent_based_api.v1.register.html" class="btn btn-neutral float-right" title="agent_based_api.v1.register" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="cmk.base.plugins.agent_based.agent_based_api.v1.html" class="btn btn-neutral float-left" title="agent_based_api.v1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, tribe29 GmbH.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

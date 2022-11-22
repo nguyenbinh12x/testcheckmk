@@ -1,0 +1,368 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>agent_based_api.v1.render &mdash; Checkmk&#39;s Plugin API  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="agent_based_api.v1.type_defs" href="cmk.base.plugins.agent_based.agent_based_api.v1.type_defs.html" />
+    <link rel="prev" title="agent_based_api.v1.register" href="cmk.base.plugins.agent_based.agent_based_api.v1.register.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Checkmk's Plugin API
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Base</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="cmk.base.plugins.agent_based.agent_based_api.html">Agent based API (“Check API”)</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cmk.base.plugins.agent_based.agent_based_api.html#version-1">Version 1</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cmk.base.plugins.agent_based.agent_based_api.v1.html">agent_based_api.v1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmk.base.plugins.agent_based.agent_based_api.v1.clusterize.html">agent_based_api.v1.clusterize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmk.base.plugins.agent_based.agent_based_api.v1.register.html">agent_based_api.v1.register</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">agent_based_api.v1.render</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmk.base.plugins.agent_based.agent_based_api.v1.type_defs.html">agent_based_api.v1.type_defs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Checkmk's Plugin API</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="cmk.base.plugins.agent_based.agent_based_api.html">Agent based API (“Check API”)</a> &raquo;</li>
+        
+      <li>agent_based_api.v1.render</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="module-cmk.base.plugins.agent_based.agent_based_api.v1.render"></span><div class="section" id="agent-based-api-v1-render">
+<h1>agent_based_api.v1.render<a class="headerlink" href="#agent-based-api-v1-render" title="Permalink to this headline">¶</a></h1>
+<p>The “render” namespace adds functions to render values in a human readable way.</p>
+<p>All of the render functions take a single numerical value as an argument, and return
+a string.</p>
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.render.date">
+<code class="sig-name descname"><span class="pre">date</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epoch</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.render.date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render seconds since epoch as date</p>
+<p>In case None is given it returns “never”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.render.datetime">
+<code class="sig-name descname"><span class="pre">datetime</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epoch</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.render.datetime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render seconds since epoch as date and time</p>
+<p>In case None is given it returns “never”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.render.timespan">
+<code class="sig-name descname"><span class="pre">timespan</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seconds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.render.timespan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render a time span in seconds</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.render.disksize">
+<code class="sig-name descname"><span class="pre">disksize</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bytes_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.render.disksize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render a disk size in bytes using an appropriate SI prefix</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">disksize</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+<span class="go">&#39;1.02 kB&#39;</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.render.bytes">
+<code class="sig-name descname"><span class="pre">bytes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bytes_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.render.bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render a number of bytes using an appropriate IEC prefix</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">bytes</span><span class="p">(</span><span class="mi">1024</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">&#39;1.00 MiB&#39;</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.render.filesize">
+<code class="sig-name descname"><span class="pre">filesize</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bytes_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.render.filesize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render a file size in bytes</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">filesize</span><span class="p">(</span><span class="mi">12345678</span><span class="p">)</span>
+<span class="go">&#39;12,345,678 B&#39;</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.render.frequency">
+<code class="sig-name descname"><span class="pre">frequency</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hertz</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.render.frequency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render a frequency in hertz using an appropriate SI prefix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.render.networkbandwidth">
+<code class="sig-name descname"><span class="pre">networkbandwidth</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">octets_per_sec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.render.networkbandwidth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render network bandwidth using an appropriate SI prefix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.render.nicspeed">
+<code class="sig-name descname"><span class="pre">nicspeed</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">octets_per_sec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.render.nicspeed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render NIC speed using an appropriate SI prefix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.render.iobandwidth">
+<code class="sig-name descname"><span class="pre">iobandwidth</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bytes_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.render.iobandwidth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render IO-bandwith using an appropriate SI prefix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.render.percent">
+<code class="sig-name descname"><span class="pre">percent</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">percentage</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.render.percent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render percentage</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">percent</span><span class="p">(</span><span class="mf">9.213</span><span class="p">)</span>
+<span class="go">&#39;9.21%&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">percent</span><span class="p">(</span><span class="mf">0.003</span><span class="p">)</span>
+<span class="go">&#39;&lt;0.01%&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">percent</span><span class="p">(</span><span class="o">-</span><span class="mf">0.003</span><span class="p">)</span>
+<span class="go">&#39;-0.00%&#39;</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="cmk.base.plugins.agent_based.agent_based_api.v1.type_defs.html" class="btn btn-neutral float-right" title="agent_based_api.v1.type_defs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="cmk.base.plugins.agent_based.agent_based_api.v1.register.html" class="btn btn-neutral float-left" title="agent_based_api.v1.register" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, tribe29 GmbH.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

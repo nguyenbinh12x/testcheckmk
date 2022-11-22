@@ -1,0 +1,991 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>agent_based_api.v1 &mdash; Checkmk&#39;s Plugin API  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="agent_based_api.v1.clusterize" href="cmk.base.plugins.agent_based.agent_based_api.v1.clusterize.html" />
+    <link rel="prev" title="Agent based API (“Check API”)" href="cmk.base.plugins.agent_based.agent_based_api.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Checkmk's Plugin API
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Base</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="cmk.base.plugins.agent_based.agent_based_api.html">Agent based API (“Check API”)</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cmk.base.plugins.agent_based.agent_based_api.html#version-1">Version 1</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">agent_based_api.v1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmk.base.plugins.agent_based.agent_based_api.v1.clusterize.html">agent_based_api.v1.clusterize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmk.base.plugins.agent_based.agent_based_api.v1.register.html">agent_based_api.v1.register</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmk.base.plugins.agent_based.agent_based_api.v1.render.html">agent_based_api.v1.render</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmk.base.plugins.agent_based.agent_based_api.v1.type_defs.html">agent_based_api.v1.type_defs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Checkmk's Plugin API</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="cmk.base.plugins.agent_based.agent_based_api.html">Agent based API (“Check API”)</a> &raquo;</li>
+        
+      <li>agent_based_api.v1</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="module-cmk.base.plugins.agent_based.agent_based_api.v1"></span><div class="section" id="agent-based-api-v1">
+<h1>agent_based_api.v1<a class="headerlink" href="#agent-based-api-v1" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.all_of">
+<code class="sig-name descname"><span class="pre">all_of</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spec_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spec_1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">specs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.all_of" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detect the device if all passed specifications are met</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spec_0</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">SNMPDetectSpecification</span></code>) – A valid specification for SNMP device detection</p></li>
+<li><p><strong>spec_1</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">SNMPDetectSpecification</span></code>) – A valid specification for SNMP device detection</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">SNMPDetectSpecification</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A valid specification for SNMP device detection</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">DETECT</span> <span class="o">=</span> <span class="n">all_of</span><span class="p">(</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;1.2.3.4&quot;</span><span class="p">),</span> <span class="n">contains</span><span class="p">(</span><span class="s2">&quot;1.2.3.5&quot;</span><span class="p">,</span> <span class="s2">&quot;foo&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.any_of">
+<code class="sig-name descname"><span class="pre">any_of</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">specs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.any_of" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detect the device if any of the passed specifications are met</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>spec</strong> – A valid specification for SNMP device detection</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">SNMPDetectSpecification</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A valid specification for SNMP device detection</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">DETECT</span> <span class="o">=</span> <span class="n">any_of</span><span class="p">(</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;1.2.3.4&quot;</span><span class="p">),</span> <span class="n">exists</span><span class="p">(</span><span class="s2">&quot;1.2.3.5&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.exists">
+<code class="sig-name descname"><span class="pre">exists</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oidstr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detect the device if the OID exists at all</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>oidstr</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The OID that is required to exist</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">SNMPDetectSpecification</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A valid specification for SNMP device detection</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">DETECT</span> <span class="o">=</span> <span class="n">exists</span><span class="p">(</span><span class="s2">&quot;1.2.3&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.equals">
+<code class="sig-name descname"><span class="pre">equals</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oidstr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.equals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detect the device if the value of the OID equals the given string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>oidstr</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The OID to match the value against</p></li>
+<li><p><strong>value</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The expected value of the OID</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">SNMPDetectSpecification</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A valid specification for SNMP device detection</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">DETECT</span> <span class="o">=</span> <span class="n">equals</span><span class="p">(</span><span class="s2">&quot;1.2.3&quot;</span><span class="p">,</span> <span class="s2">&quot;MySwitch&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.startswith">
+<code class="sig-name descname"><span class="pre">startswith</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oidstr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.startswith" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detect the device if the value of the OID starts with the given string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>oidstr</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The OID to match the value against</p></li>
+<li><p><strong>value</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The expected start of the OIDs value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">SNMPDetectSpecification</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A valid specification for SNMP device detection</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">DETECT</span> <span class="o">=</span> <span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;1.2.3&quot;</span><span class="p">,</span> <span class="s2">&quot;Sol&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.endswith">
+<code class="sig-name descname"><span class="pre">endswith</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oidstr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.endswith" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detect the device if the value of the OID ends with the given string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>oidstr</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The OID to match the value against</p></li>
+<li><p><strong>value</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The expected end of the OIDs value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">SNMPDetectSpecification</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A valid specification for SNMP device detection</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">DETECT</span> <span class="o">=</span> <span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;1.2.3&quot;</span><span class="p">,</span> <span class="s2">&quot;nix&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.contains">
+<code class="sig-name descname"><span class="pre">contains</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oidstr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.contains" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detect the device if the value of the OID contains the given string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>oidstr</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The OID to match the value against</p></li>
+<li><p><strong>value</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The substring expected to be in the OIDs value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">SNMPDetectSpecification</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A valid specification for SNMP device detection</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">DETECT</span> <span class="o">=</span> <span class="n">contains</span><span class="p">(</span><span class="s2">&quot;1.2.3&quot;</span><span class="p">,</span> <span class="s2">&quot;isco&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.matches">
+<code class="sig-name descname"><span class="pre">matches</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oidstr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.matches" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detect the device if the value of the OID matches the expression</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>oidstr</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The OID to match the value against</p></li>
+<li><p><strong>value</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The regular expression that the value of the OID should match</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">SNMPDetectSpecification</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A valid specification for SNMP device detection</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">DETECT</span> <span class="o">=</span> <span class="n">matches</span><span class="p">(</span><span class="s2">&quot;1.2.3.4&quot;</span><span class="p">,</span> <span class="s2">&quot;.* Server&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.not_exists">
+<code class="sig-name descname"><span class="pre">not_exists</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oidstr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.not_exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>The negation of <a class="reference internal" href="#cmk.base.plugins.agent_based.agent_based_api.v1.exists" title="cmk.base.plugins.agent_based.agent_based_api.v1.exists"><code class="xref py py-func docutils literal notranslate"><span class="pre">exists()</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">SNMPDetectSpecification</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.not_equals">
+<code class="sig-name descname"><span class="pre">not_equals</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oidstr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.not_equals" title="Permalink to this definition">¶</a></dt>
+<dd><p>The negation of <a class="reference internal" href="#cmk.base.plugins.agent_based.agent_based_api.v1.equals" title="cmk.base.plugins.agent_based.agent_based_api.v1.equals"><code class="xref py py-func docutils literal notranslate"><span class="pre">equals()</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">SNMPDetectSpecification</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.not_contains">
+<code class="sig-name descname"><span class="pre">not_contains</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oidstr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.not_contains" title="Permalink to this definition">¶</a></dt>
+<dd><p>The negation of <a class="reference internal" href="#cmk.base.plugins.agent_based.agent_based_api.v1.contains" title="cmk.base.plugins.agent_based.agent_based_api.v1.contains"><code class="xref py py-func docutils literal notranslate"><span class="pre">contains()</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">SNMPDetectSpecification</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.not_endswith">
+<code class="sig-name descname"><span class="pre">not_endswith</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oidstr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.not_endswith" title="Permalink to this definition">¶</a></dt>
+<dd><p>The negation of <a class="reference internal" href="#cmk.base.plugins.agent_based.agent_based_api.v1.endswith" title="cmk.base.plugins.agent_based.agent_based_api.v1.endswith"><code class="xref py py-func docutils literal notranslate"><span class="pre">endswith()</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">SNMPDetectSpecification</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.not_matches">
+<code class="sig-name descname"><span class="pre">not_matches</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oidstr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.not_matches" title="Permalink to this definition">¶</a></dt>
+<dd><p>The negation of <a class="reference internal" href="#cmk.base.plugins.agent_based.agent_based_api.v1.matches" title="cmk.base.plugins.agent_based.agent_based_api.v1.matches"><code class="xref py py-func docutils literal notranslate"><span class="pre">matches()</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">SNMPDetectSpecification</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.not_startswith">
+<code class="sig-name descname"><span class="pre">not_startswith</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oidstr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.not_startswith" title="Permalink to this definition">¶</a></dt>
+<dd><p>The negation of <a class="reference internal" href="#cmk.base.plugins.agent_based.agent_based_api.v1.startswith" title="cmk.base.plugins.agent_based.agent_based_api.v1.startswith"><code class="xref py py-func docutils literal notranslate"><span class="pre">startswith()</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">SNMPDetectSpecification</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.Attributes">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Attributes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inventory_attributes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status_attributes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.Attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">cmk.base.api.agent_based.inventory_classes._AttributesTuple</span></code></p>
+<p>Attributes to be written at a node in the HW/SW inventory</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.check_levels">
+<code class="sig-name descname"><span class="pre">check_levels</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">levels_upper</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">levels_lower</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">render_func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundaries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notice_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.check_levels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generic function for checking a value against levels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The currently measured value</p></li>
+<li><p><strong>levels_upper</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]) – A pair of upper thresholds. If value is larger than these, the
+service goes to <strong>WARN</strong> or <strong>CRIT</strong>, respecively.</p></li>
+<li><p><strong>levels_lower</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]) – A pair of lower thresholds. If value is smaller than these, the
+service goes to <strong>WARN</strong> or <strong>CRIT</strong>, respecively.</p></li>
+<li><p><strong>metric_name</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – The name of the datasource in the RRD that corresponds to this value
+or None in order not to generate a metric.</p></li>
+<li><p><strong>render_func</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – A single argument function to convert the value from float into a
+human readable string.</p></li>
+<li><p><strong>label</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – The label to prepend to the output.</p></li>
+<li><p><strong>boundaries</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]]) – Minimum and maximum to add to the metric.</p></li>
+<li><p><strong>notice_only</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Only show up in service output if not OK (otherwise in details).
+See <cite>notice</cite> keyword of <cite>Result</cite> class.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="p">,</span> <span class="n">metric</span> <span class="o">=</span> <span class="n">check_levels</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="mf">23.0</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">levels_upper</span><span class="o">=</span><span class="p">(</span><span class="mf">12.</span><span class="p">,</span> <span class="mf">42.</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="n">metric_name</span><span class="o">=</span><span class="s2">&quot;temperature&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Fridge&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">render_func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">%.1f</span><span class="s2">°&quot;</span> <span class="o">%</span> <span class="n">v</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">summary</span><span class="p">)</span>
+<span class="go">Fridge: 23.0° (warn/crit at 12.0°/42.0°)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">metric</span><span class="p">)</span>
+<span class="go">Metric(&#39;temperature&#39;, 23.0, levels=(12.0, 42.0))</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Generator</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Result</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Metric</span></code>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.check_levels_predictive">
+<code class="sig-name descname"><span class="pre">check_levels_predictive</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">levels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">render_func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundaries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.check_levels_predictive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generic function for checking a value against levels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Currently measured value</p></li>
+<li><p><strong>levels</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]) – Predictive levels. These are used automatically.
+Lower levels are imposed if the passed dictionary contains “lower”
+as key, upper levels are imposed if it contains “upper” or
+“levels_upper_min” as key.
+If value is lower/higher than these, the service goes to <strong>WARN</strong>
+or <strong>CRIT</strong>, respecively.</p></li>
+<li><p><strong>metric_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Name of the datasource in the RRD that corresponds to this value</p></li>
+<li><p><strong>render_func</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – Single argument function to convert the value from float into a
+human readable string.
+readable fashion</p></li>
+<li><p><strong>label</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – Label to prepend to the output.</p></li>
+<li><p><strong>boundaries</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]]) – Minimum and maximum to add to the metric.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Generator</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Result</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Metric</span></code>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.get_average">
+<code class="sig-name descname"><span class="pre">get_average</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value_store</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backlog_minutes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.get_average" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return new average based on current value and last average</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value_store</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">MutableMapping</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]) – The Mapping that holds the last value. Usually this will
+be the value store provided by the API.</p></li>
+<li><p><strong>key</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Unique ID for storing this average until the next check</p></li>
+<li><p><strong>time</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Timestamp of new value</p></li>
+<li><p><strong>value</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The new value</p></li>
+<li><p><strong>backlog_minutes</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Averaging horizon in minutes</p></li>
+</ul>
+</dd>
+</dl>
+<p>This function returns the new average value aₙ as the weighted sum of the
+current value xₙ and the last average:</p>
+<blockquote>
+<div><p>aₙ = (1 - w)xₙ + waₙ₋₁</p>
+<blockquote>
+<div><p>= (1-w) ∑ᵢ₌₀ⁿ wⁱxₙ₋ᵢ</p>
+</div></blockquote>
+</div></blockquote>
+<p>This results in a so called “exponential moving average”.</p>
+<p>The weight is chosen such that for long running timeseries the “backlog”
+(all recorded values in the last n minutes) will make up 50% of the
+weighted average.</p>
+<p>Assuming k values in the backlog, compute their combined weight such that
+they sum up to the backlog weight b (0.5 in our case):</p>
+<blockquote>
+<div><p>b = (1-w) ∑ᵢ₌₀ᵏ⁻¹  wⁱ  =&gt;  w = (1 - b) ** (1/k)    (“geometric sum”)</p>
+</div></blockquote>
+<p>For shorter timeseries we give the backlog more than those 50% weight
+with the advantages that</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>the initial value becomes irrelevant, and</p></li>
+<li><p>for beginning timeseries we reach a meaningful value more quickly.</p></li>
+</ul>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The computed average</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.get_rate">
+<code class="sig-name descname"><span class="pre">get_rate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value_store</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raise_overflow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.get_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a rate based based on current value and time and last value and time</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value_store</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">MutableMapping</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]) – The Mapping that holds the last value.
+Usually this will be the value store provided by the APIs
+<a class="reference internal" href="#cmk.base.plugins.agent_based.agent_based_api.v1.get_value_store" title="cmk.base.plugins.agent_based.agent_based_api.v1.get_value_store"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_value_store()</span></code></a>.</p></li>
+<li><p><strong>key</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Unique ID for storing this average until the next check</p></li>
+<li><p><strong>time</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Timestamp of new value</p></li>
+<li><p><strong>value</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The new value</p></li>
+<li><p><strong>raise_overflow</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Raise a <a class="reference internal" href="#cmk.base.plugins.agent_based.agent_based_api.v1.GetRateError" title="cmk.base.plugins.agent_based.agent_based_api.v1.GetRateError"><code class="xref py py-class docutils literal notranslate"><span class="pre">GetRateError</span></code></a> if the rate is negative</p></li>
+</ul>
+</dd>
+</dl>
+<p>This function returns the rate of a measurement rₙ as the quotient of the
+current value and time (xₙ, tₙ) and the last recorded value and time (xₙ₋₁, tₙ₋₁):</p>
+<blockquote>
+<div><p>rₙ = (xₙ - xₙ₋₁) / (tₙ - tₙ₋₁)</p>
+</div></blockquote>
+<p>A <a class="reference internal" href="#cmk.base.plugins.agent_based.agent_based_api.v1.GetRateError" title="cmk.base.plugins.agent_based.agent_based_api.v1.GetRateError"><code class="xref py py-class docutils literal notranslate"><span class="pre">GetRateError</span></code></a> will be raised if one of the following happens:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>the function is called for the first time</p></li>
+<li><p>the time has not changed</p></li>
+<li><p>the rate is negative and <cite>raise_overflow</cite> is set to True (usefull
+for instance when dealing with counters)</p></li>
+</ul>
+</div></blockquote>
+<p>In general there is no need to catch a <a class="reference internal" href="#cmk.base.plugins.agent_based.agent_based_api.v1.GetRateError" title="cmk.base.plugins.agent_based.agent_based_api.v1.GetRateError"><code class="xref py py-class docutils literal notranslate"><span class="pre">GetRateError</span></code></a>, as it
+inherits <a class="reference internal" href="#cmk.base.plugins.agent_based.agent_based_api.v1.IgnoreResultsError" title="cmk.base.plugins.agent_based.agent_based_api.v1.IgnoreResultsError"><code class="xref py py-class docutils literal notranslate"><span class="pre">IgnoreResultsError</span></code></a>.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># in practice: my_store = get_value_store()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_store</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;cookies&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">1600000000</span><span class="p">,</span> <span class="mi">23</span><span class="p">)}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_rate</span><span class="p">(</span><span class="n">my_store</span><span class="p">,</span> <span class="s2">&quot;cookies&quot;</span><span class="p">,</span> <span class="mi">1600000060</span><span class="p">,</span> <span class="mi">56</span><span class="p">)</span>
+<span class="go">0.55</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The computed rate</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.get_value_store">
+<code class="sig-name descname"><span class="pre">get_value_store</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.get_value_store" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value store for the current service from Checkmk</p>
+<p>The returned value store object can be used to persist values
+between different check executions. It is a MutableMapping,
+so it can be used just like a dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">MutableMapping</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.HostLabel">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">HostLabel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.HostLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">cmk.base.api.agent_based.type_defs.PluginSuppliedLabel</span></code></p>
+<p>Representing a host label in Checkmk</p>
+<p>This class creates a host label that can be yielded by a host_label_function as regisitered
+with the section.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_label</span> <span class="o">=</span> <span class="n">HostLabel</span><span class="p">(</span><span class="s2">&quot;my_key&quot;</span><span class="p">,</span> <span class="s2">&quot;my_value&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.IgnoreResults">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">IgnoreResults</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'currently</span> <span class="pre">no</span> <span class="pre">results'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.IgnoreResults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A result to make the service go stale, but carry on with the check function</p>
+<p>Yielding a result of type <cite>IgnoreResults</cite> will have a similar effect as raising
+an <a class="reference internal" href="#cmk.base.plugins.agent_based.agent_based_api.v1.IgnoreResultsError" title="cmk.base.plugins.agent_based.agent_based_api.v1.IgnoreResultsError"><code class="xref py py-class docutils literal notranslate"><span class="pre">IgnoreResultsError</span></code></a>, with the difference that the execution of the
+check funtion will not be interrupted.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">yield</span> <span class="n">IgnoreResults</span><span class="p">(</span><span class="s2">&quot;Good luck next time!&quot;</span><span class="p">)</span>
+<span class="k">return</span>
+</pre></div>
+</div>
+<p>is equivalent to</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="n">IgnoreResultsError</span><span class="p">(</span><span class="s2">&quot;Good luck next time!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is useful for instance if you want to initialize all counters, before
+returning.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.IgnoreResultsError">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">IgnoreResultsError</span></code><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.IgnoreResultsError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">RuntimeError</span></code></p>
+<p>Raising an <cite>IgnoreResultsError</cite> from within a check function makes the service go stale.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">check_db_table</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">section</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">if</span> <span class="n">item</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">section</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="c1"># avoid a lot of UNKNOWN services:</span>
+<span class="gp">... </span>        <span class="k">raise</span> <span class="n">IgnoreResultsError</span><span class="p">(</span><span class="s2">&quot;Login to database failed&quot;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="c1"># do your work here</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.Metric">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Metric</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">levels</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundaries</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.Metric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">cmk.base.api.agent_based.checking_classes._MetricTuple</span></code></p>
+<p>Create a metric for a service</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – The name of the metric.</p></li>
+<li><p><strong>value</strong> – The measured value.</p></li>
+<li><p><strong>levels</strong> – A tuple of upper levels. This information is only used for visualization
+by the graphing system. It does not affect the service state.</p></li>
+<li><p><strong>boundaries</strong> – Additional information on the value domain for the graphing system.</p></li>
+</ul>
+</dd>
+</dl>
+<p>If you create a Metric in this way, you may want to consider using <a class="reference internal" href="#cmk.base.plugins.agent_based.agent_based_api.v1.check_levels" title="cmk.base.plugins.agent_based.agent_based_api.v1.check_levels"><code class="xref py py-func docutils literal notranslate"><span class="pre">check_levels()</span></code></a>.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_metric</span> <span class="o">=</span> <span class="n">Metric</span><span class="p">(</span><span class="s2">&quot;used_slots_percent&quot;</span><span class="p">,</span> <span class="mf">23.0</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">),</span> <span class="n">boundaries</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.OIDBytes">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">OIDBytes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.OIDBytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">cmk.base.api.agent_based.type_defs.OIDSpecTuple</span></code></p>
+<p>Class to indicate that the OIDs value should be provided as list of integers</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>oid</strong> – The OID to fetch</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">OIDBytes</span><span class="p">(</span><span class="s2">&quot;2.1&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.OIDCached">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">OIDCached</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.OIDCached" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">cmk.base.api.agent_based.type_defs.OIDSpecTuple</span></code></p>
+<p>Class to indicate that the OIDs value should be cached</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>oid</strong> – The OID to fetch</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">OIDCached</span><span class="p">(</span><span class="s2">&quot;2.1&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.OIDEnd">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">OIDEnd</span></code><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.OIDEnd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">cmk.base.api.agent_based.type_defs.OIDSpecTuple</span></code></p>
+<p>Class to indicate the end of the OID string should be provided</p>
+<p>When specifying an OID in an SNMPTree object, the parse function
+will be handed the corresponding value of that OID. If you use OIDEnd()
+instead, the parse function will be given the tailing portion of the
+OID (the part that you not already know).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.regex">
+<code class="sig-name descname"><span class="pre">regex</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.regex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compile regex or look it up in already compiled regexes.
+(compiling is a CPU consuming process. We cache compiled regexes).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Pattern</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">AnyStr</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.Result">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Result</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">cmk.base.api.agent_based.checking_classes.State</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">summary</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">details</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'None'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.Result" title="Permalink to this definition">¶</a></dt>
+<dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Result</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">cmk.base.api.agent_based.checking_classes.State</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notice</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">details</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'None'</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">cmk.base.api.agent_based.checking_classes._ResultTuple</span></code></p>
+<p>A result to be yielded by check functions</p>
+<p>This is the class responsible for creating service output and setting the state of a service.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> – The resulting state of the service.</p></li>
+<li><p><strong>summary</strong> – The text to be displayed in the services <em>summary</em> view.</p></li>
+<li><p><strong>notice</strong> – A text that will only be shown in the <em>summary</em> if <cite>state</cite> is not OK.</p></li>
+<li><p><strong>details</strong> – The alternative text that will be displayed in the details view. Defaults to the
+value of <cite>summary</cite> or <cite>notice</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You must specify <em>exactly</em> one of the arguments <code class="docutils literal notranslate"><span class="pre">summary</span></code> and <code class="docutils literal notranslate"><span class="pre">notice</span></code>!</p>
+</div>
+<p>When yielding more than one result, Checkmk will not only aggregate the texts, but also
+compute the worst state for the service and highlight the individual non-OK states in
+the output.
+You should always match the state to the output, and yield subresults:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">my_check_function</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="c1"># the back end will comput the worst overall state:</span>
+<span class="gp">... </span>    <span class="k">yield</span> <span class="n">Result</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="n">State</span><span class="o">.</span><span class="n">CRIT</span><span class="p">,</span> <span class="n">summary</span><span class="o">=</span><span class="s2">&quot;All the foos are broken&quot;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">yield</span> <span class="n">Result</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="n">State</span><span class="o">.</span><span class="n">OK</span><span class="p">,</span> <span class="n">summary</span><span class="o">=</span><span class="s2">&quot;All the bars are fine&quot;</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># run function to make sure we have a working example</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">my_check_function</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">notice</span></code> keyword has the special property that it will only be displayed if the
+corresponding state is not OK. Otherwise we assume it is sufficient if the information
+is available in the details view:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">my_check_function</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="n">count</span> <span class="o">=</span> <span class="mi">23</span>
+<span class="gp">... </span>    <span class="k">yield</span> <span class="n">Result</span><span class="p">(</span>
+<span class="gp">... </span>        <span class="n">state</span><span class="o">=</span><span class="n">State</span><span class="o">.</span><span class="n">WARN</span> <span class="k">if</span> <span class="n">count</span> <span class="o">&lt;=</span> <span class="mi">42</span> <span class="k">else</span> <span class="n">State</span><span class="o">.</span><span class="n">OK</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="n">notice</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Things: </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>  <span class="c1"># only appear in summary if count drops below 43</span>
+<span class="gp">... </span>        <span class="n">details</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;We currently have this many things: </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># run function to make sure we have a working example</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">my_check_function</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>If you find yourself computing the state by comparing a metric to some thresholds, you
+probably should be using <a class="reference internal" href="#cmk.base.plugins.agent_based.agent_based_api.v1.check_levels" title="cmk.base.plugins.agent_based.agent_based_api.v1.check_levels"><code class="xref py py-func docutils literal notranslate"><span class="pre">check_levels()</span></code></a>!</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.Service">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Service</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">cmk.base.api.agent_based.checking_classes.ServiceLabel</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.Service" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">cmk.base.api.agent_based.checking_classes._ServiceTuple</span></code></p>
+<p>Class representing services that the discover function yields</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>item</strong> – The item of the service</p></li>
+<li><p><strong>parameters</strong> – The determined discovery parameters for this service</p></li>
+<li><p><strong>labels</strong> – A list of labels attached to this service</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_drive_service</span> <span class="o">=</span> <span class="n">Service</span><span class="p">(</span>
+<span class="gp">... </span>   <span class="n">item</span><span class="o">=</span><span class="s2">&quot;disc_name&quot;</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">parameters</span><span class="o">=</span><span class="p">{},</span>
+<span class="gp">... </span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.ServiceLabel">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">ServiceLabel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.ServiceLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">cmk.base.api.agent_based.type_defs.PluginSuppliedLabel</span></code></p>
+<p>Representing a service label in Checkmk</p>
+<p>This class creates a service label that can be passed to a ‘Service’ object.
+It can be used in the discovery function to create a new label like this:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_label</span> <span class="o">=</span> <span class="n">ServiceLabel</span><span class="p">(</span><span class="s2">&quot;my_key&quot;</span><span class="p">,</span> <span class="s2">&quot;my_value&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.SNMPTree">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">SNMPTree</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oids</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">cmk.base.api.agent_based.type_defs.OIDSpecTuple</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.SNMPTree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">cmk.base.api.agent_based.type_defs.SNMPTreeTuple</span></code></p>
+<p>Specify an OID table to fetch</p>
+<p>For every SNMPTree that is specified, the parse function will
+be handed a list of lists with the values of the corresponding
+OIDs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>base</strong> – The OID base string, starting with a dot.</p></li>
+<li><p><strong>oids</strong> – A list of OID specifications.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">SNMPTree</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">base</span><span class="o">=</span><span class="s2">&quot;.1.2.3.4.5.6&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">oids</span><span class="o">=</span><span class="p">[</span>
+<span class="gp">... </span>        <span class="n">OIDEnd</span><span class="p">(),</span>  <span class="c1"># I want the end oids of every entry</span>
+<span class="gp">... </span>        <span class="s2">&quot;7.8&quot;</span><span class="p">,</span>  <span class="c1"># just a regular entry</span>
+<span class="gp">... </span>        <span class="n">OIDCached</span><span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">),</span>  <span class="c1"># this is HUGE, please cache it</span>
+<span class="gp">... </span>        <span class="n">OIDBytes</span><span class="p">(</span><span class="s2">&quot;42&quot;</span><span class="p">),</span>  <span class="c1"># I expect bytes, give me a list of integers</span>
+<span class="gp">... </span>    <span class="p">],</span>
+<span class="gp">... </span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.State">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">State</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.State" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>States of check results</p>
+<dl class="py method">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.State.best">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">best</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.State.best" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the best of all passed states</p>
+<p>You can pass an arbitrary number of arguments, and the return value will be
+the “best” of them, where</p>
+<blockquote>
+<div><p><cite>OK -&gt; WARN -&gt; UNKNOWN -&gt; CRIT</cite></p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">State</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – Any number of one of State.OK, State.WARN, State.CRIT, State.UNKNOWN</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">State</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The best of the input states, one of State.OK, State.WARN, State.CRIT, State.UNKNOWN.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">State</span><span class="o">.</span><span class="n">best</span><span class="p">(</span><span class="n">State</span><span class="o">.</span><span class="n">OK</span><span class="p">,</span> <span class="n">State</span><span class="o">.</span><span class="n">WARN</span><span class="p">,</span> <span class="n">State</span><span class="o">.</span><span class="n">CRIT</span><span class="p">,</span> <span class="n">State</span><span class="o">.</span><span class="n">UNKNOWN</span><span class="p">)</span>
+<span class="go">&lt;State.OK: 0&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">State</span><span class="o">.</span><span class="n">best</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">State</span><span class="o">.</span><span class="n">CRIT</span><span class="p">)</span>
+<span class="go">&lt;State.OK: 0&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.State.worst">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">worst</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.State.worst" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the worst of all passed states.</p>
+<p>You can pass an arbitrary number of arguments, and the return value will be
+the “worst” of them, where</p>
+<blockquote>
+<div><p><cite>OK &lt; WARN &lt; UNKNOWN &lt; CRIT</cite></p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">State</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – Any number of one of State.OK, State.WARN, State.CRIT, State.UNKNOWN</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">State</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The worst of the input States, one of State.OK, State.WARN, State.CRIT, State.UNKNOWN.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">State</span><span class="o">.</span><span class="n">worst</span><span class="p">(</span><span class="n">State</span><span class="o">.</span><span class="n">OK</span><span class="p">,</span> <span class="n">State</span><span class="o">.</span><span class="n">WARN</span><span class="p">,</span> <span class="n">State</span><span class="o">.</span><span class="n">CRIT</span><span class="p">,</span> <span class="n">State</span><span class="o">.</span><span class="n">UNKNOWN</span><span class="p">)</span>
+<span class="go">&lt;State.CRIT: 2&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">State</span><span class="o">.</span><span class="n">worst</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">State</span><span class="o">.</span><span class="n">CRIT</span><span class="p">)</span>
+<span class="go">&lt;State.CRIT: 2&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.TableRow">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">TableRow</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_columns</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inventory_columns</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status_columns</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.TableRow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">cmk.base.api.agent_based.inventory_classes._TableRowTuple</span></code></p>
+<p>TableRow to be written into a Table at a node in the HW/SW inventory</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="cmk.base.plugins.agent_based.agent_based_api.v1.GetRateError">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">GetRateError</span></code><a class="headerlink" href="#cmk.base.plugins.agent_based.agent_based_api.v1.GetRateError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">cmk.base.api.agent_based.checking_classes.IgnoreResultsError</span></code></p>
+<p>The exception raised by <a class="reference internal" href="#cmk.base.plugins.agent_based.agent_based_api.v1.get_rate" title="cmk.base.plugins.agent_based.agent_based_api.v1.get_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_rate()</span></code></a>.
+If unhandled, this exception will make the service go stale.</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="cmk.base.plugins.agent_based.agent_based_api.v1.clusterize.html" class="btn btn-neutral float-right" title="agent_based_api.v1.clusterize" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="cmk.base.plugins.agent_based.agent_based_api.html" class="btn btn-neutral float-left" title="Agent based API (“Check API”)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, tribe29 GmbH.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
